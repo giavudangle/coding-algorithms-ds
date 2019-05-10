@@ -53,6 +53,15 @@ namespace ConsoleApp2
             //Console.Write(Triangle.Area(halfPerimeter, d1, d2, d3));
 
             #endregion
+                
+            #region Rectangle
+            Rectangle rec = new Rectangle();
+            rec.Input();
+            //Console.WriteLine(rec.Output());
+            //Console.WriteLine(rec.Perimeter());
+            //Console.WriteLine(rec.Area());
+            //Console.Write(rec.Axios());
+            #endregion
         }
     }
 }
