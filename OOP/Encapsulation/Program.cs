@@ -53,14 +53,30 @@ namespace ConsoleApp2
             //Console.Write(Triangle.Area(halfPerimeter, d1, d2, d3));
 
             #endregion
-                
-            #region Rectangle
-            Rectangle rec = new Rectangle();
-            rec.Input();
-            //Console.WriteLine(rec.Output());
-            //Console.WriteLine(rec.Perimeter());
-            //Console.WriteLine(rec.Area());
-            //Console.Write(rec.Axios());
+            #region Date
+            //Date date = new Date(30, 12, 2000);
+            //Console.WriteLine(date.getDay);
+            //Console.WriteLine(date.getMonth);
+            //Console.WriteLine(date.getYear);
+            //date.setDay(22);
+            //date.setMonth(12);
+            //date.setYear(2000);
+            //date.setDate(22,12,1995);
+            #endregion
+            #region Author
+            //Author author = new Author("GiaVu", "medusa666@gmail.com", 'f');
+            //Console.WriteLine(author.getName);
+            //Console.WriteLine(author.getEmail);
+            //Console.WriteLine(author.getGender);
+            //Console.Write(author.toString);
+
+            #endregion
+            #region Book
+            Author author = new Author("DangLeGiaVu", "medusa666@gmail.com", 'f');
+            Book book = new Book("Harry Potter", author, 5000.275);
+            Book book1 = new Book("Harry Potter", author, 1230,2);
+            Console.Write(book.toString);
+            Console.Write(book1.toString);
             #endregion
         }
     }
