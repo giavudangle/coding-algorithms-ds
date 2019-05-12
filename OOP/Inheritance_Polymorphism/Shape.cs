@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LAB8
+namespace ConsoleApp2
 {
     abstract class Shape
     {
@@ -16,12 +16,12 @@ namespace LAB8
 
         }
 
-        public Shape(string color,bool filled)
+        public Shape(string color, bool filled)
         {
             this.color = color;
             this.filled = filled;
         }
-            
+
         public string getColor()
         {
             return color;
@@ -31,7 +31,7 @@ namespace LAB8
         {
             this.color = color;
         }
-        
+
         public bool isFilled()
         {
             if (filled) return true;
@@ -49,4 +49,3 @@ namespace LAB8
 
     }
 }
-
