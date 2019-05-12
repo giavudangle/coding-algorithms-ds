@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LAB8
+namespace ConsoleApp2
 {
-    class Circle:Shape
+    class Circle : Shape
     {
         private double radius;
 
@@ -15,7 +15,7 @@ namespace LAB8
 
         }
 
-        public Circle(double radius,string color,bool filled) : base(color, filled)
+        public Circle(double radius, string color, bool filled) : base(color, filled)
         {
             this.radius = radius;
             this.color = color;
@@ -44,7 +44,7 @@ namespace LAB8
 
         public override string toString()
         {
-            return "Area of Circle is" + getArea() + "\n" + "Perimeter of Circle is" + getPerimeter() + "\n";
+            return "Area of Circle is " + getArea() + "\n" + "Perimeter of Circle is" + getPerimeter() + "\n";
         }
     }
 }
