@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+// Created by Chicken_Coder
 
 namespace LAB03_Eratosthenes
 {
