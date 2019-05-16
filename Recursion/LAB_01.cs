@@ -9,7 +9,6 @@ namespace ConsoleApp1
 {
     class Program
     {
-
         public static int Factorial(int n)
         {
             if (n == 1) return 1;
