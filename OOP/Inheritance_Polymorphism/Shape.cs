@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+// Created by Chicken_Coder
 namespace ConsoleApp2
 {
     abstract class Shape
@@ -42,7 +42,7 @@ namespace ConsoleApp2
         {
             if (!filled) filled = true;
         }
-
+        
         public abstract double getArea();
         public abstract double getPerimeter();
         public abstract string toString();
