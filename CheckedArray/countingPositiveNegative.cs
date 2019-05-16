@@ -15,8 +15,7 @@ namespace ConsoleApp1
             string line;         
             int[] a;
             int n;
-
-
+            
             using (StreamReader myFile = new StreamReader("E:\\INP.txt"))
             {
                 line = myFile.ReadLine();
