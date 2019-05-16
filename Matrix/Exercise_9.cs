@@ -4,22 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using System.Globalization;
+// Created by Chicken_Coder
 
-namespace Exercise_9
+namespace LAB9
 {
-    class Exercise_9
+    class Program
     {
-        static void Main(string[] args)
+        static string fileInput = @"E:\INP.txt";
+        static string fileOutput = @"E:\INP.txt";
+        static string[] tokens;
+        static string line;
+        static int m, n, k;
+        static int[,] a;
+        static int[,] b;
+        static double[,] c;
+
+      
+        static void Input()
         {
-            int m, n, k;
-            int[,] a;
-            int[,] b;
-            string[] tokens;
-            string line;
-
-
-            using (StreamReader myFile = new StreamReader("E:\\INP.txt"))
+            using (StreamReader myFile = new StreamReader(fileInput))
             {
                 line = myFile.ReadLine();
                 tokens = line.Split(' ');
@@ -27,15 +30,9 @@ namespace Exercise_9
                 n = int.Parse(tokens[1]);
                 k = int.Parse(tokens[2]);
 
-                int row = m;
-                int col = n;
                 a = new int[m, n];
                 b = new int[k, k];
-                int resRow = m - k + 1;
-                int resCol = n - k + 1;
-                int[,] result = new int[resRow, resCol];
-                //.WriteLine(resRow);
-                //Console.WriteLine(resCol);
+
                 for (int i = 0; i < m; i++)
                 {
                     line = myFile.ReadLine();
@@ -54,52 +51,52 @@ namespace Exercise_9
                     {
                         b[i, j] = int.Parse(tokens[j]);
                     }
-
-                    // find center position of kernel (half of kernel size)
-                    int kCenterX = k / 2;
-                    int kCenterY = k / 2;
-                    int zz = 0, xx = 0, ii = 0, jj = 0;
-                    int q=0, w=0, e=0, r=0;
-                    for (q = 0; q < m; ++q)              // rows
-                    {
-                        for ( w = 0; w < n; ++w)          // columns
-                        {
-                            for ( e = 0; e < k; ++e)     // kernel rows
-                            {
-                                zz = k - 1 - e;      // fix size
-
-                                for ( r = 0; r < k; ++r) // kernel columns
-                                {
-                                    xx = k - 1 - r;  // fix size
-
-                                    // check input true ?
-                                    ii = q + (kCenterY - zz);
-                                    jj = w + (kCenterX - xx);
-                                    //Console.WriteLine(ii);
-                                    //Console.WriteLine(jj);
-                                    int[,] check = new int[ii, jj];
-                                    int[,] temp = new int[zz, xx];
-                                    // check input false?
-                                    if (ii >= 0 && ii < row && jj >= 0 && jj < col)
-                                        result[q, w] += check[ii, jj] * b[zz, xx];
-                                }
-                            }
-                        }
-                    }
                 }
-                using (StreamWriter outFile = new StreamWriter("E:\\OUT.txt"))
+            }
+        }
+      
+        static void Convolution()
+        {
+            int rowC = m - k + 1;
+            int colC = n - k + 1;
+            c = new double[rowC, colC];
+
+            for (int h = 0; h < rowC; h++)
+            {
+                for (int l = 0; l < colC; l++)
                 {
-                    for (int i = 0; i < resRow; i++)
+                    c[h, l] = 0;
+                    for (int i = 0; i < k; i++)
                     {
-                        for (int j = 0; j < resCol; j++)
+                        for (int j = 0; j < k; j++)
                         {
-                            outFile.Write("{0} ", result[resRow, resCol]);
+                            c[h,l] += a[h + l, l + j] * b[i, j];
                         }
                     }
                 }
             }
+        }
 
-
+        static void Output()
+        {
+            using (StreamWriter outFile=new StreamWriter(fileOutput))
+            {
+                for (int i = 0; i < m - k + 1; i++)
+                {
+                    for (int j = 0; j < n - k + 1; j++)
+                    {
+                        outFile.Write(c[i, j] + " ");
+                    }
+                    outFile.WriteLine();
+                }
+            }        
+        }
+         
+        static void Main(string[] args)
+        {
+            Input();
+            Convolution();
+            Output();
         }
     }
 }
