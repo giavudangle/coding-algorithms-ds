@@ -22,9 +22,14 @@ namespace ConsoleApp2
         }
         // Use Properties to Simple.
         public string getName => name;
-        public string getEmail => email;     
+        
+        public string getEmail => email;    
+        
         public char getGender => gender;
+        
         public string setEmail(string email) => this.email = email;
+        
         public string toString => "Author[name=" + name + ",email=" + email + ",gender=" + gender + "]";
+        
     }
 }
