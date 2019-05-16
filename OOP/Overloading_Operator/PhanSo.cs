@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp3
+namespace ConsoleApplication1
 {
     class PhanSo
     {
@@ -43,82 +43,77 @@ namespace ConsoleApp3
             return tuSo * 1.0 / mauSo;
         }
 
-        public PhanSo Cong(PhanSo p)
+        public static PhanSo operator + (PhanSo p1,PhanSo p2)
         {
-            int top = tuSo * p.mauSo + p.tuSo * mauSo;
-            int down = mauSo * p.mauSo;
-            return new PhanSo(top, down);
+            PhanSo res = new PhanSo();
+            res.tuSo= p1.tuSo * p2.mauSo + p2.tuSo * p1.mauSo;
+            res.mauSo = p1.mauSo * p2.mauSo;
+            return res;
         }
 
-        public PhanSo Tru(PhanSo p)
+        public static PhanSo operator -(PhanSo p1, PhanSo p2)
         {
-            int top = tuSo * p.mauSo - p.tuSo * mauSo;
-            int down = mauSo * p.mauSo;
-            return new PhanSo(top, down);
+            PhanSo res = new PhanSo();
+            res.tuSo = p1.tuSo * p2.mauSo - p2.tuSo * p1.mauSo;
+            res.mauSo = p1.mauSo * p2.mauSo;
+            return res;
         }
 
-        public PhanSo Nhan(PhanSo p)
+
+        public static PhanSo operator *(PhanSo p1, PhanSo p2)
         {
-            int top = tuSo * p.tuSo;
-            int down = mauSo * p.mauSo;
-            return new PhanSo(top, down);
+            PhanSo res = new PhanSo();
+            res.tuSo = p1.tuSo*p2.tuSo;
+            res.mauSo = p1.mauSo * p2.mauSo;
+            return res;
+        }    
+        public static PhanSo operator /(PhanSo p1, PhanSo p2)
+        {
+            PhanSo res = new PhanSo();
+            res.tuSo = p1.tuSo * p2.tuSo + p1.mauSo * p2.mauSo;
+            res.mauSo = p1.mauSo * p2.tuSo;
+            return res;
+        }
+        
+        public static bool operator ==(PhanSo p1, PhanSo p2)
+        {
+            return p1.Equals(p2);
+        }
+        public static bool operator !=(PhanSo p1, PhanSo p2)
+        {
+            return !p1.Equals(p2);
         }
 
-        public PhanSo Chia(PhanSo p)
+        public override int GetHashCode()
         {
-            int top = tuSo * p.tuSo + mauSo * p.mauSo;
-            int down = mauSo * p.tuSo;
-            return new PhanSo(top, down);
+            return this.ToString().GetHashCode();
         }
 
-        public bool isEqual(PhanSo p)
+        public static bool operator < (PhanSo p1, PhanSo p2)
         {
-            if (tuSo * p.mauSo == mauSo * p.tuSo) return true;
+            if (p1.mauSo == p2.mauSo && p1.tuSo < p2.tuSo) return true;
+            if (p1.mauSo > p2.mauSo) return true;
             return false;
         }
 
-        public bool isNotEqual(PhanSo p)
+        public static bool operator >(PhanSo p1, PhanSo p2)
         {
-            if (tuSo * p.mauSo != mauSo * p.tuSo) return true;
+            if (p1.mauSo == p2.mauSo && p1.tuSo > p2.tuSo) return true;
+            if (p1.mauSo < p2.mauSo) return true;
             return false;
         }
 
-        public bool isGreatter(PhanSo p)
+        public static bool operator <=(PhanSo p1, PhanSo p2)
         {
-            // Cùng mẫu,tử lớn hơn là lớn hơn
-            // Ko cùng mẫu,mẫu lớn hơn thì bé hơn
-            // return true tức phân số hiện tại lớn hơn phân số truyền vào
-            if (mauSo == p.mauSo && tuSo > p.tuSo) return true;
-            if (p.mauSo > mauSo) return true;
+            if (p1 < p2 || p1==p2) return true;
             return false;
-            
         }
 
-        public bool isLess(PhanSo p)
+        public static bool operator >=(PhanSo p1, PhanSo p2)
         {
-            // Cùng mẫu,tử nhỏ hơn là nhỏ hơn
-            // Ko cùng mẫu,mẫu lớn phân số càng bé.Tức phân số hiện tại bé hơn
-            // return true tức phân số hiện tại bé hơn phân số truyền vào
-            if (mauSo == p.mauSo && tuSo < p.tuSo) return true;
-            if (mauSo>p.mauSo) return true;
+            if (p1 > p2 || p1==p2) return true;
             return false;
         }
-
-        // Tương tự >= <=
-        public bool isUpperBound(PhanSo p)
-        {                   
-            if (mauSo == p.mauSo && tuSo >= p.tuSo) return true;
-            if (p.mauSo >= mauSo) return true;
-            return false;
-        }
-
-        public bool isLowerBound(PhanSo p)
-        {
-            if (mauSo == p.mauSo && tuSo < p.tuSo) return true;
-            if (mauSo > p.mauSo) return true;
-            return false;
-        }
-
 
     }
 }
