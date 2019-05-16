@@ -17,7 +17,7 @@ namespace Exercise_5
             int[,] b;
             int[,] result;
             int save = 0;
-
+            
             string input;
             string[] tokens;
 
@@ -26,8 +26,7 @@ namespace Exercise_5
 
             string arrayB;
             string[] saveB;
-
-
+            
             using (StreamReader myFile = new StreamReader("D:\\18DH110138\\ConsoleApplication1\\INP.txt"))
             {
                 input = myFile.ReadLine();
