@@ -27,11 +27,8 @@ namespace ConsoleApp1
             TowerOfHanoi(n - 1, b, a, c);
         }
 
-
         static void Main(string[] args)
         {
-
-
             using (StreamReader myFile = new StreamReader(fileInput))
             {
                 line = myFile.ReadLine();
@@ -45,7 +42,6 @@ namespace ConsoleApp1
                         outFile.WriteLine(step);
                     }
                 }
-
             }
         }
     }
