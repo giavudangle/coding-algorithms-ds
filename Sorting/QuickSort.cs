@@ -9,7 +9,6 @@ namespace ConsoleApp1
 {
     class Program
     {
-
         static void QuickSort(int[] a, int L, int R)
         {
             int i, j, x;
@@ -34,10 +33,7 @@ namespace ConsoleApp1
             if (R > i)
                 QuickSort(a, i, R);
         }
-
-
-
-
+        
         static void Main(string[] args)
         {
             string[] tokens;
