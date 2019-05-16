@@ -28,6 +28,7 @@ namespace ConsoleApp2
             this.price = price;
             this.qty = qty;
         }
+        // Use properties
 
         public string getName => name;
         public Author getAuthor => author;
@@ -35,10 +36,6 @@ namespace ConsoleApp2
         public double setPrice(double price) => this.price = price;
         public int getQty => qty;
         public int setQty(int qty) => this.qty = qty;
-        //public string toString
-        //=> "Book[name=" + name + ",Author[name=" + author.getName + ",email=" +
-        //    author.getEmail + ",gender=" + author.getGender + "],price=" + price + ",qty=" + qty + "]";
-
         public string toString => "Book[name=" + name + "," + author.toString + ",price=" + price + ",qty=" + qty + "]";
 
     }
