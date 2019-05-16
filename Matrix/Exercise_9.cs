@@ -18,8 +18,7 @@ namespace LAB9
         static int[,] a;
         static int[,] b;
         static double[,] c;
-
-      
+     
         static void Input()
         {
             using (StreamReader myFile = new StreamReader(fileInput))
