@@ -7,11 +7,8 @@ using System.IO;
 // Created by Chicken_Coder
 namespace ConsoleApp1
 {
-
     class Program
-    {
-        
-
+    {       
         public static int Processing(int[]a,int n)
         {
             int count = 1;
