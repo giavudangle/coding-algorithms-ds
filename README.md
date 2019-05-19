@@ -1,1 +1,2 @@
-# HUFLIT_Programming
+All Exercises from HUFLIT.
+Solved by GiaVU
