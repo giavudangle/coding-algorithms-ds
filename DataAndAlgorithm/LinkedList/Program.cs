@@ -52,8 +52,11 @@ namespace LinkedList
             #region Linked List Part 2
             MyList myList = new MyList();
             myList.Input();
-           
-            //myList.ShowList();
+            myList.ShowList();
+            //myList.InsertAfterMin(100);
+            myList.InsertXAfterY(99,4);
+            //myList.InsertBeforeMax(55);
+            myList.ShowList();
             ////myList.RemoveAt(3);
             //// myList.RemoveX(5);
             //myList.InsertAt(100, 2);
