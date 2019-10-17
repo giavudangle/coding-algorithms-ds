@@ -122,7 +122,7 @@ namespace LinkedList
         {
             IntNode minNode = new IntNode();
             minNode = first;
-            
+
             for (IntNode pointer = first; pointer != null; pointer = pointer.Next)
             {
                 if (pointer.Data <= minNode.Data)
@@ -183,28 +183,28 @@ namespace LinkedList
         // Exercise 4 - Linked List Next
         public void RemoveAt(int position)
         {
-            IntNode head = first;          
+            IntNode head = first;
             if (head == null)
                 return;
-       
-           IntNode temp = head;
-            
+
+            IntNode temp = head;
+
             if (position == 0)
             {
-                head = temp.Next;   
+                head = temp.Next;
                 return;
             }
-       
+
             for (int i = 0; temp != null && i < position - 1; i++)
                 temp = temp.Next;
-           
+
             if (temp == null || temp.Next == null)
-                return;          
+                return;
             IntNode next = temp.Next.Next;
 
-            temp.Next = next;  
+            temp.Next = next;
         }
-       
+
         public void RemoveX(int x)
         {
             IntNode temp = first, prev = null;
@@ -215,7 +215,7 @@ namespace LinkedList
                 return;
             }
 
-            while (temp != null && temp.Data!=x)
+            while (temp != null && temp.Data != x)
             {
                 prev = temp;
                 temp = temp.Next;
@@ -223,11 +223,11 @@ namespace LinkedList
 
             if (temp == null) return;
             prev.Next = temp.Next;
-            
+
         }
 
 
-        public void InsertAt(int x,int pos)
+        public void InsertAt(int x, int pos)
         {
             IntNode node = new IntNode();
             node.Data = x;
@@ -261,17 +261,67 @@ namespace LinkedList
                     break;
                 i++;
             }
-            
+
+            . 
             node.Next = current;
             previous.Next = node;
 
         }
 
-        public void InsertAfterMin(int x)
+        public void InsertAfterMin(int z)
         {
+            int pos = 0;
+            IntNode min = first;
+            for (IntNode temp = first.Next; temp != null; temp = temp.Next)
+            {
+                if (temp.Data <= min.Data)                                
+                    pos++;
                 
+            }
+            InsertAt(z, pos+1);
         }
-       
+
+        public void InsertXAfterY(int x,int y)
+        {
+            int pos = 0;
+            for (IntNode temp = first; temp != null; temp = temp.Next)
+            {
+                pos++;
+                if (temp.Data == y)
+                {
+                    break;
+                }
+            }
+            InsertAt(x, pos);
+        }
+
+        public void InsertBeforeMax(int x)
+        {
+            int pos = 0;
+            IntNode max = first;
+            for (IntNode temp = first.Next; temp != null; temp = temp.Next)
+            {
+                if (temp.Data >= max.Data)
+                    pos++;
+            }
+            InsertAt(x, pos - 1);
+
+        }
+
+        public void InsextXBeforeY(int x, int y)
+        {
+            int pos = 0;
+            for (IntNode temp = first; temp != null; temp = temp.Next)
+            {
+                pos++;
+                if (temp.Data == y)
+                {
+                    break;
+                }
+            }
+            InsertAt(x, pos);
+        }
+
 
     }
 }
