@@ -262,7 +262,6 @@ namespace LinkedList
                 i++;
             }
 
-            . 
             node.Next = current;
             previous.Next = node;
 
@@ -270,15 +269,14 @@ namespace LinkedList
 
         public void InsertAfterMin(int z)
         {
-            int pos = 0;
-            IntNode min = first;
-            for (IntNode temp = first.Next; temp != null; temp = temp.Next)
-            {
-                if (temp.Data <= min.Data)                                
-                    pos++;
-                
-            }
-            InsertAt(z, pos+1);
+           
+            IntNode temp = GetMin();
+            IntNode x = temp.Next;
+
+            IntNode needInsert = new IntNode(z);
+
+            temp.Next = needInsert;
+            temp.Next.Next=x;
         }
 
         public void InsertXAfterY(int x,int y)
@@ -297,15 +295,28 @@ namespace LinkedList
 
         public void InsertBeforeMax(int x)
         {
-            int pos = 0;
-            IntNode max = first;
-            for (IntNode temp = first.Next; temp != null; temp = temp.Next)
-            {
-                if (temp.Data >= max.Data)
-                    pos++;
-            }
-            InsertAt(x, pos - 1);
 
+            IntNode maxNode = GetMax();
+            IntNode prev = null;
+            IntNode head = first;
+            IntNode newNode = new IntNode(x);
+
+            
+            bool flag = false;
+            while (head.Data != maxNode.Data)
+            {
+                flag = true;
+                prev = head;
+                head = head.Next;
+            }
+            if (flag)
+            {
+                prev.Next = newNode;
+                prev.Next.Next = head;
+            }
+            else
+                AddFirst(newNode);
+                              
         }
 
         public void InsextXBeforeY(int x, int y)
