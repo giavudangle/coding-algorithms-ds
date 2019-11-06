@@ -50,6 +50,11 @@ namespace Tree
             return false;
         }
        
+        public void Input()
+        {
+            // Chưa nghĩ ra cách Parse Data từ Generics
+            // Chỉ định được kiểu dữ liệu làm dễ dàng.
+        }
 
         public void PreOrder()
         {
@@ -92,6 +97,22 @@ namespace Tree
             if (root == null)
                 return null;
             return root.LeftLeast();
+        }
+
+        public bool Remove(T x)
+        {
+            if (root == null)
+                return false;
+
+            if (x.CompareTo(root.Data) == 0)
+            {
+                MyTNode<T> tmp = new MyTNode<T>();
+                tmp.leftChild = root;           
+                bool res = root.Remove(x, tmp);
+                root = tmp.leftChild;
+                return res;
+            }                           
+            return root.Remove(x, null);
         }
 
         public virtual int CountLeaf(MyTNode<T> node)
