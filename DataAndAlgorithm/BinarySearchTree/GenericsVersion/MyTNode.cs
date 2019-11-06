@@ -40,6 +40,11 @@ namespace Tree
             pRight = null;
         }
 
+        public MyTNode()
+        {
+            
+        }
+
         public int TreeHeight()
         {
             return 1 + Math.Max(
@@ -116,9 +121,7 @@ namespace Tree
             }
 
         }
-
-        
-
+      
         public MyTNode<T> RightMost()
         {
             if (pRight == null)
