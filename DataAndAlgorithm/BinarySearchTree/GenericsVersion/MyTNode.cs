@@ -1,3 +1,9 @@
+/*
+ * Title: Binary Search Stree C# Implementation - Class MyBinaryTree
+ * Author : Dang Le Gia Vu
+ */
+
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,10 +12,10 @@ using System.Threading.Tasks;
 using System.Collections;
 
 
-namespace Tree
+namespace BinarySearchTree
 {
     // Class MyTNote must inheritance Generics Interface for using CompareTo Methods.
-    public class MyTNode<T> where T:IComparable<T>
+    public class MyTNode<T> where T : IComparable<T>
     {
         T data;
         MyTNode<T> pLeft = null;
@@ -42,7 +48,7 @@ namespace Tree
 
         public MyTNode()
         {
-            
+
         }
 
         public int TreeHeight()
@@ -72,8 +78,8 @@ namespace Tree
             }
             return true;
         }
-     
-       
+
+
         public void NLR()
         {
             Console.Write(Data + " -> ");
@@ -83,7 +89,7 @@ namespace Tree
                 pRight.NLR();
         }
 
-     
+
 
         public void LNR()
         {
@@ -93,7 +99,7 @@ namespace Tree
             if (pRight != null)
                 pRight.LNR();
         }
-        
+
         public void LRN()
         {
             if (pLeft != null)
@@ -103,9 +109,9 @@ namespace Tree
             Console.Write(Data + " -> ");
         }
 
-        public MyTNode<T> SearchX(T x) 
+        public MyTNode<T> SearchX(T x)
         {
-            if (x.CompareTo(data)==0)
+            if (x.CompareTo(data) == 0)
                 return this;
             if (x.CompareTo(data) < 0)
             {
@@ -121,7 +127,7 @@ namespace Tree
             }
 
         }
-      
+
         public MyTNode<T> RightMost()
         {
             if (pRight == null)
@@ -144,7 +150,7 @@ namespace Tree
         }
 
 
-        public bool Remove(T x,MyTNode<T> parent)
+        public bool Remove(T x, MyTNode<T> parent)
         {
             if (x.CompareTo(data) < 0)
             {
@@ -177,4 +183,3 @@ namespace Tree
         }
     }
 }
-
