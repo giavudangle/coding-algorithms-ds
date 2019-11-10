@@ -1,10 +1,16 @@
+/*
+ * Title: Binary Search Stree C# Implementation - Class MyBinaryTree
+ * Author : Dang Le Gia Vu
+ */
+
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tree
+namespace BinarySearchTree
 {
     // Create node need define what's T. T is ICompareble<T>
     public class MyBinaryTree<T> where T : IComparable<T>
@@ -14,7 +20,7 @@ namespace Tree
         private int length = 0;
         private int height = 0;
 
-        public int Length { get => length+1; }   
+        public int Length { get => length + 1; }
         public int Height { get => height = HeightTree(); }
         public virtual int LeafCount { get => CountLeaf(root); }
 
@@ -23,13 +29,13 @@ namespace Tree
         {
             return root.TreeHeight();
         }
-        
+
         public MyTNode<T> Root
         {
             get => root;
             set => root = value;
         }
-     
+
         public bool Insert(T x)
         {
             if (root == null)
@@ -43,13 +49,13 @@ namespace Tree
                 {
                     length++;
                     return true;
-                    
+
                 }
-                    
+
             }
             return false;
         }
-       
+
         public void Input()
         {
             // Chưa nghĩ ra cách Parse Data từ Generics
@@ -107,11 +113,11 @@ namespace Tree
             if (x.CompareTo(root.Data) == 0)
             {
                 MyTNode<T> tmp = new MyTNode<T>();
-                tmp.leftChild = root;           
+                tmp.leftChild = root;
                 bool res = root.Remove(x, tmp);
                 root = tmp.leftChild;
                 return res;
-            }                           
+            }
             return root.Remove(x, null);
         }
 
@@ -125,34 +131,38 @@ namespace Tree
                 return CountLeaf(node.leftChild) + CountLeaf(node.rightChild);
         }
 
-       public void ListByLevel(MyTNode<T> node)
+        // Template for 2 methods down.
+        public int printGivenLevel(MyTNode<T> root, int level)
         {
-           
             if (root == null)
-                return;
-
-            Queue<MyTNode<T>> q = new Queue<MyTNode<T>>(); 
-            q.Enqueue(root);
-
-            while (true)
-            {             
-                int nodeCount = q.Count;
-                if (nodeCount == 0)
-                    break;
-
-                while (nodeCount > 0)
-                {
-                    MyTNode<T> e = q.Peek();
-                    Console.Write(node.Data + " ");
-                    q.Dequeue();
-                    if (e.leftChild != null)
-                        q.Enqueue(e.leftChild);
-                    if (node.rightChild != null)
-                        q.Enqueue(e.rightChild);
-                    nodeCount--;
-                }
-                Console.WriteLine();
+                return 0;            
+            if (level == 1)
+                Console.Write(root.Data + " ");          
+            else if (level > 1)
+            {
+                printGivenLevel(root.leftChild, level - 1);
+                printGivenLevel(root.rightChild, level - 1);
             }
+            return 0;
+        }
+
+        public void ListByLevel()
+        {
+            int h = Height;
+            int i;
+            for (i = 1; i <= h; i++)
+            {
+                Console.Write("Level {0} -> Data: ", i);
+                printGivenLevel(root, i);
+                Console.WriteLine();
+                
+            }
+        }
+
+        public void ListLastLevel()
+        {
+            Console.WriteLine("List Last Level");
+            printGivenLevel(root, Height);
         }
 
     }
