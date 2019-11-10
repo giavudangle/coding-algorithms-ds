@@ -1,10 +1,16 @@
+/*
+ * Title: Binary Search Stree C# Implementation - Class MyBinaryTree
+ * Author : Dang Le Gia Vu
+ */
+
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tree
+namespace BinarySearchTree
 {
     class Program
     {
@@ -79,21 +85,22 @@ namespace Tree
 
             #region Method On Binary Search Tree
             /* Thêm Node vào Cây */
-            //myTree.Insert(25);
-            //myTree.Insert(15);
-            //myTree.Insert(50);
-            //myTree.Insert(10);
-            //myTree.Insert(22);
-            //myTree.Insert(35);
-            //myTree.Insert(70);
-            //myTree.Insert(4);
-            //myTree.Insert(12);
-            //myTree.Insert(18);
-            //myTree.Insert(24);
-            //myTree.Insert(31);
-            //myTree.Insert(44);
-            //myTree.Insert(66);
-            //myTree.Insert(90);
+            myTree.Insert(25);
+            myTree.Insert(15);
+            myTree.Insert(50);
+            myTree.Insert(10);
+            myTree.Insert(22);
+            myTree.Insert(35);
+            myTree.Insert(70);
+            myTree.Insert(4);
+            myTree.Insert(12);
+            myTree.Insert(18);
+            myTree.Insert(24);
+            myTree.Insert(31);
+            myTree.Insert(44);
+            myTree.Insert(66);
+            myTree.Insert(90);
+
 
             /* Duyệt cây */
             //Console.Write("NLR: ");
@@ -139,6 +146,11 @@ namespace Tree
             //Console.Write("NLR: ");
             //myTree.PreOrder();
             //Console.WriteLine();
+
+            /* 2 */
+            //myTree.printGivenLevel(myTree.Root,3); // template
+            //myTree.ListByLevel();
+            //myTree.ListLastLevel();
             #endregion
         }
     }
